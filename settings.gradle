@@ -1,0 +1,2 @@
+rootProject.name = "Android_Home_Work_Calculator"
+include ':app'
