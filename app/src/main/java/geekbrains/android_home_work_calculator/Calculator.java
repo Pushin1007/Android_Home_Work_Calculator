@@ -5,12 +5,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
-public class Calc {
+public class Calculator {
 
     private ArrayList<Object> list;
     protected BigDecimal digit;
 
-    public Calc() {
+    public Calculator() {
         this.list = new ArrayList<Object>();
     }
 
