@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-3. * Создайте макет калькулятора для горизонтальной ориентации экрана и отображайте его в ландшафтной ориентации.-->
+<?xml version="1.0" encoding="utf-8"?>
+
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -19,147 +19,106 @@
 
         <TextView
             android:id="@+id/num_view"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="end|bottom"
-            android:hint="Здесь будут вычисления"
-            android:textSize="24sp" />
+            style="@style/TextStyle"
+            android:gravity="end|bottom" />
 
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:columnCount="5">
+            android:columnCount="@dimen/column_count_land">
 
             <Button
                 android:id="@+id/key_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_clear" />
 
             <Button
                 android:id="@+id/key_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnSpan="2"
+                style="@style/ButtonStyle"
+                android:layout_columnSpan="@dimen/double_column_span"
                 android:layout_gravity="fill_horizontal"
-                android:layout_margin="3dp"
                 android:text="@string/key_delete" />
 
             <Button
                 android:id="@+id/key_div"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_div" />
 
             <Button
                 android:id="@+id/key_mult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_mult" />
 
             <Button
                 android:id="@+id/key_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_1" />
 
             <Button
                 android:id="@+id/key_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_2" />
 
             <Button
                 android:id="@+id/key_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_3" />
 
             <Button
                 android:id="@+id/key_sub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_sub" />
-
 
             <Button
                 android:id="@+id/key_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_add" />
 
             <Button
                 android:id="@+id/key_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_4" />
 
             <Button
                 android:id="@+id/key_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_5" />
 
             <Button
                 android:id="@+id/key_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_6" />
 
             <Button
                 android:id="@+id/key_dot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_dot" />
 
             <Button
                 android:id="@+id/key_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_rowSpan="2"
+                style="@style/ButtonStyle"
+                android:layout_rowSpan="@dimen/double_row_span"
                 android:layout_gravity="fill_vertical"
-                android:layout_margin="3dp"
                 android:text="@string/key_result" />
-
 
             <Button
                 android:id="@+id/key_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_7" />
 
             <Button
                 android:id="@+id/key_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_8" />
 
             <Button
                 android:id="@+id/key_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_9" />
 
             <Button
                 android:id="@+id/key_0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
+                style="@style/ButtonStyle"
                 android:text="@string/key_0" />
 
 
