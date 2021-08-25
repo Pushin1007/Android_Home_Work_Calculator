@@ -1,170 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><!--
- 1. С этого урока будем писать приложение «Калькулятор». Выберите макет для работы с
-калькулятором. Обоснуйте, почему будете использовать именно этот тип макета.
-2. Сверстайте главный экран калькулятора. На нём должны быть кнопки, обозначающие цифры и знаки
-действия: «Плюс», «Умножить», «Разделить», «Вычесть» и т. п.-->
+<?xml version="1.0" encoding="utf-8"?>
 
-
-<!--  В данном участке выбираем FrameLayout, т.к. он позволяет наслаивать одни контейнеры и виджеты на другие-->
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--    3. * Добавляем фоновый рисунок для экрана калькулятора.-->
+
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background" />
-    <!--    В данном участке выбираем LinearLayout, т.к. нужно расположить два контейнера вертикально один под другим-->
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/num_view"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:gravity="end|bottom"
-            android:hint="Здесь будут вычисления"
-            android:textSize="24sp" />
-        <!--    В данном участке выбираем GridLayout, т.к. клавиатуру удобнее делать в виде сетки-->
+            style="@style/TextStyle"
+            android:gravity="end|bottom" />
+
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:columnCount="4">
+            android:columnCount="4"
+            android:theme="@style/ButtonStyle">
 
             <Button
                 android:id="@+id/key_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_clear" />
 
             <Button
                 android:id="@+id/key_delete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_delete" />
 
             <Button
                 android:id="@+id/key_div"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_div" />
 
             <Button
                 android:id="@+id/key_mult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_mult" />
 
             <Button
                 android:id="@+id/key_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_1" />
 
             <Button
                 android:id="@+id/key_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_2" />
 
             <Button
                 android:id="@+id/key_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_3" />
-
 
             <Button
                 android:id="@+id/key_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_add" />
 
             <Button
                 android:id="@+id/key_4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_4" />
 
             <Button
                 android:id="@+id/key_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_5" />
 
             <Button
                 android:id="@+id/key_6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_6" />
 
             <Button
                 android:id="@+id/key_sub"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_sub" />
 
             <Button
                 android:id="@+id/key_7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_7" />
 
             <Button
                 android:id="@+id/key_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_8" />
 
             <Button
                 android:id="@+id/key_9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_9" />
 
             <Button
                 android:id="@+id/key_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_rowSpan="2"
                 android:layout_gravity="fill_vertical"
-                android:layout_margin="3dp"
                 android:text="@string/key_result" />
 
             <Button
                 android:id="@+id/key_0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_columnSpan="2"
                 android:layout_gravity="fill_horizontal"
-                android:layout_margin="3dp"
                 android:text="@string/key_0" />
 
             <Button
                 android:id="@+id/key_dot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:text="@string/key_dot" />
 
 

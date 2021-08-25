@@ -16,9 +16,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TextView numView; //объявляем переменную отображения ввода/вывода
-    private Button key_0, key_1, key_2, key_3, key_4, key_5, key_6, key_7, key_8, key_9, key_dot, key_add,
-            key_sub, key_mult, key_div, key_clear, key_delete, key_result; // обьявляем переменные кнопок
-    Calc calc = new Calc();
+
+    private Button key0; // обьявляем переменные кнопок
+    private Button key1;
+    private Button key2;
+    private Button key3;
+    private Button key4;
+    private Button key5;
+    private Button key6;
+    private Button key7;
+    private Button key8;
+    private Button key9;
+    private Button keyAdd;
+    private Button keySub;
+    private Button keyMult;
+    private Button keyDiv;
+    private Button keyClear;
+    private Button keyDot;
+    private Button keyDelete;
+    private Button keyResult;
+
+String ddd;
+    private Calc calc = new Calc(); // создаем обьект калькулятора
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,29 +47,29 @@ public class MainActivity extends AppCompatActivity {
         numView = findViewById(R.id.num_view); // инициализируем переменную отображения ввода/вывода и присваиваем соответствующую вьюху
 
 
-        key_0 = findViewById(R.id.key_0); // инициализация кнопок
-        key_1 = findViewById(R.id.key_1);
-        key_2 = findViewById(R.id.key_2);
-        key_3 = findViewById(R.id.key_3);
-        key_4 = findViewById(R.id.key_4);
-        key_5 = findViewById(R.id.key_5);
-        key_6 = findViewById(R.id.key_6);
-        key_7 = findViewById(R.id.key_7);
-        key_8 = findViewById(R.id.key_8);
-        key_9 = findViewById(R.id.key_9);
-        key_dot = findViewById(R.id.key_dot);
+        key0 = findViewById(R.id.key_0); // инициализация кнопок
+        key1 = findViewById(R.id.key_1);
+        key2 = findViewById(R.id.key_2);
+        key3 = findViewById(R.id.key_3);
+        key4 = findViewById(R.id.key_4);
+        key5 = findViewById(R.id.key_5);
+        key6 = findViewById(R.id.key_6);
+        key7 = findViewById(R.id.key_7);
+        key8 = findViewById(R.id.key_8);
+        key9 = findViewById(R.id.key_9);
+        keyDot = findViewById(R.id.key_dot);
 
-        key_add = findViewById(R.id.key_add);
-        key_sub = findViewById(R.id.key_sub);
-        key_mult = findViewById(R.id.key_mult);
-        key_div = findViewById(R.id.key_div);
+        keyAdd = findViewById(R.id.key_add);
+        keySub = findViewById(R.id.key_sub);
+        keyMult = findViewById(R.id.key_mult);
+        keyDiv = findViewById(R.id.key_div);
 
-        key_clear = findViewById(R.id.key_clear);
-        key_delete = findViewById(R.id.key_delete);
-        key_result = findViewById(R.id.key_result);
+        keyClear = findViewById(R.id.key_clear);
+        keyDelete = findViewById(R.id.key_delete);
+        keyResult = findViewById(R.id.key_result);
 
 
-        key_0.setOnClickListener(new View.OnClickListener() { //обработка нажатий кнопок
+        key0.setOnClickListener(new View.OnClickListener() { //обработка нажатий кнопок
             @Override
             public void onClick(View v) {
                 calc.setList(0);
@@ -58,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        key_1.setOnClickListener(new View.OnClickListener() {
+        key1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(1);
                 updateNumWiev();
             }
         });
-        key_2.setOnClickListener(new View.OnClickListener() {
+        key2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(2);
@@ -73,49 +92,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        key_3.setOnClickListener(new View.OnClickListener() {
+        key3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(3);
                 updateNumWiev();
             }
         });
-        key_4.setOnClickListener(new View.OnClickListener() {
+        key4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(4);
                 updateNumWiev();
             }
         });
-        key_5.setOnClickListener(new View.OnClickListener() {
+        key5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(5);
                 updateNumWiev();
             }
         });
-        key_6.setOnClickListener(new View.OnClickListener() {
+        key6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(6);
                 updateNumWiev();
             }
         });
-        key_7.setOnClickListener(new View.OnClickListener() {
+        key7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(7);
                 updateNumWiev();
             }
         });
-        key_8.setOnClickListener(new View.OnClickListener() {
+        key8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(8);
                 updateNumWiev();
             }
         });
-        key_9.setOnClickListener(new View.OnClickListener() {
+        key9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(9);
@@ -124,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        key_dot.setOnClickListener(new View.OnClickListener() {
+        keyDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.setList(".");
@@ -134,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Кнопки с операндами. Еще пока не придумал как их обрабатывать между числами
-        key_add.setOnClickListener(new View.OnClickListener() {
+        keyAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.addition();
@@ -143,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        key_sub.setOnClickListener(new View.OnClickListener() {
+        keySub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.subtraction();
@@ -152,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 // здесь надо будет ловить эксепшен если второе число будет 0
-        key_div.setOnClickListener(new View.OnClickListener() {
+        keyDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.division();
@@ -161,19 +180,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        key_mult.setOnClickListener(new View.OnClickListener() {
+        keyMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 calc.multiplication();
                 updateNumWiev();
             }
         });
+
+        keyClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calc.clear();
+                updateNumWiev();
+            }
+        });
     }
+
+
 
 
     private void updateNumWiev() { // Метод обновления вьюшки. не могу понять почему не работает
-        numView.setText(String.valueOf(calc.printNum()));
+        ddd = calc.printNum().toString();
+        numView.setText(ddd);
     }
-
 
 }
