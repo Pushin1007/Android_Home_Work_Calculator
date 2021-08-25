@@ -3,7 +3,7 @@ package geekbrains.android_home_work_calculator;
 1. Переделайте все кнопки на Материал. Сделано
 2. Все размеры и строки сделайте ресурсами. Сделано
 3. Создайте стиль для своего приложения. Сделано
-4. * Создайте светлую и тёмную тему для приложения.
+4. * Создайте светлую и тёмную тему для приложения. Не сделано
 
  */
 
@@ -195,5 +195,4 @@ public class MainActivity extends AppCompatActivity {
         numView.setText(String.valueOf(calc.printNum()));
     }
 
-
-}
+    }
