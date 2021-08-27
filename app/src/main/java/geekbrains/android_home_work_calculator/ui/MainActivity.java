@@ -9,6 +9,7 @@ package geekbrains.android_home_work_calculator.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import geekbrains.android_home_work_calculator.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MainPresenter presenter;
 
     private TextView numView; //объявляем переменную отображения ввода/вывода
 
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         key0.setOnClickListener(new View.OnClickListener() { //обработка нажатий кнопок
             @Override
             public void onClick(View v) {
+                presenter.onKeyOnePresed();
                 calc.setList(0);
                 updateNumWiev();
             }
