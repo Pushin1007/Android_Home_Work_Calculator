@@ -1,7 +1,8 @@
 package geekbrains.android_home_work_calculator.ui;
 /*
-1. Напишите обработку каждой кнопки из макета калькулятора.
-2. Создайте объект с данными и операциями калькулятора. Продумайте, каким образом будете хранить введённые пользователем данные.
+1. Создайте активити с настройками, где включите выбор темы приложения.
+2. Доделайте приложение «Калькулятор». Это последний урок с созданием приложения «Калькулятор».
+3. * Сделайте интент-фильтр для запуска калькулятора извне, а также напишите тестовое приложение, запускающее приложение-калькулятор
 
  */
 
@@ -12,17 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import geekbrains.android_home_work_calculator.Calc;
 import geekbrains.android_home_work_calculator.R;
 import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
+
+import java.util.HashMap;
+
+
 
 public class MainActivity extends AppCompatActivity implements  MainView{
 
     private MainPresenter presenter;
 
-    private TextView numView; //объявляем переменную отображения ввода/вывода
+    private TextView numView;
 
-    private Button key0; // обьявляем переменные кнопок
+    private Button key0;
     private Button key1;
     private Button key2;
     private Button key3;
@@ -41,8 +45,7 @@ public class MainActivity extends AppCompatActivity implements  MainView{
     private Button keyDelete;
     private Button keyResult;
 
-String ddd;
-    private Calc calc = new Calc(); // создаем обьект калькулятора
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
