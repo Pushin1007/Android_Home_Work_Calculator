@@ -15,14 +15,6 @@ public class Digit {
         }
     }
 
-//    public void makeReal() {
-//        isReal = true;
-//    }
-//
-//    public void makeInt() {
-//        isReal = false;
-//    }
-
     public void addDigit(int value) {
         if (!isReal) {
             mod.add(value);
@@ -37,7 +29,9 @@ public class Digit {
 
     public double toDouble(){
         double result = 0;
-
+for (int i: mod){
+    result = result*10 +i;
+}
         return result;
     }
 

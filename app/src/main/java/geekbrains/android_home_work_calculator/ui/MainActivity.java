@@ -14,8 +14,9 @@ import android.widget.TextView;
 
 import geekbrains.android_home_work_calculator.Calc;
 import geekbrains.android_home_work_calculator.R;
+import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  MainView{
 
     private MainPresenter presenter;
 
@@ -49,7 +50,7 @@ String ddd;
         setContentView(R.layout.activity_main_calc);
 
         numView = findViewById(R.id.num_view); // инициализируем переменную отображения ввода/вывода и присваиваем соответствующую вьюху
-
+presenter = new MainPresenter(this, new CalculatorImpl());
 
         key0 = findViewById(R.id.key_0); // инициализация кнопок
         key1 = findViewById(R.id.key_1);
@@ -76,8 +77,8 @@ String ddd;
         key0.setOnClickListener(new View.OnClickListener() { //обработка нажатий кнопок
             @Override
             public void onClick(View v) {
-                calc.setList(0);
-                updateNumWiev();
+//                calc.setList(0);
+//                updateNumWiev();
             }
         });
 
@@ -85,16 +86,16 @@ String ddd;
             @Override
             public void onClick(View v) {
                 presenter.onKeyOnePresed();
-                calc.setList(1);
-                updateNumWiev();
+//                calc.setList(1);
+//                updateNumWiev();
             }
         });
         key2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onKeyTwoPresed();
-                calc.setList(2);
-                updateNumWiev();
+//                calc.setList(2);
+//                updateNumWiev();
             }
         });
 
@@ -162,6 +163,7 @@ String ddd;
         keyAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                presenter.onKeyPlusPressed();
                 calc.addition();
                 updateNumWiev();
             }
@@ -211,4 +213,8 @@ String ddd;
         numView.setText(ddd);
     }
 
+    @Override
+    public void showResult(String result) {
+        numView.setText(result);
+    }
 }
