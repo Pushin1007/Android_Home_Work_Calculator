@@ -19,6 +19,8 @@ public class MainPresenter {
 
     private Operation operation;
 
+    private int num;
+
     public MainPresenter(MainView view, Calculator calculator) {
         this.view = view;
         this.calculator = calculator;
@@ -29,6 +31,31 @@ public class MainPresenter {
         argTwo = null;
         view.showResult(String.valueOf(0.0));
 
+    }
+
+
+    public void onKeyDeletePressed() { // стирает только один знак
+        if (!isRealInput) {
+            if (argTwo == null) {
+                argOne = (argOne - num) / BASE;
+                view.showResult(String.valueOf(argOne));
+
+            } else {
+                argTwo = (argTwo - num) / BASE;
+                view.showResult(String.valueOf(argTwo));
+            }
+        } else {
+            if (argTwo == null) {
+                argOne = argOne - num / (double) realMultiplier * BASE;
+                view.showResult(String.valueOf(argOne));
+
+            } else {
+                argTwo = argTwo - num / (double) realMultiplier * BASE;
+                view.showResult(String.valueOf(argTwo));
+            }
+
+
+        }
     }
 
     public void onKeyPressed(int value) {
@@ -46,7 +73,9 @@ public class MainPresenter {
     }
 
 
-    public void onKeyPlusPressed() { performOperation(Operation.ADD); }
+    public void onKeyPlusPressed() {
+        performOperation(Operation.ADD);
+    }
 
     public void onKeyMultPressed() {
         performOperation(Operation.MULT);
@@ -84,26 +113,31 @@ public class MainPresenter {
             argTwo = 0.0;
 
         } else {
-            double res = calculator.performOperation(argOne, argTwo, operation);
-            view.showResult(String.valueOf(res));
 
-            argOne = res;
-            argTwo = 0.0;
-            operation = op;
+              double res = calculator.performOperation(argOne, argTwo, operation);
+              view.showResult(String.valueOf(res));
 
-        }
+              argOne = res;
+              argTwo = 0.0;
+              operation = op;}
+
+
         isRealInput = false;
     }
 
     private double addDigit(double arg, int digit) {
+        num = digit;
         if (!isRealInput) {
             return arg * BASE + digit;
         } else {
             double result = arg + digit / (double) realMultiplier;
             realMultiplier *= BASE;
             return result;
+
         }
     }
+
+
 }
 
 

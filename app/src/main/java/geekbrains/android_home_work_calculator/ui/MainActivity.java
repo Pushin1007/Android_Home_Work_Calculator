@@ -2,6 +2,7 @@ package geekbrains.android_home_work_calculator.ui;
 /*
 1. Создайте активити с настройками, где включите выбор темы приложения.
 2. Доделайте приложение «Калькулятор». Это последний урок с созданием приложения «Калькулятор».
+ Сделано, но как себе.  Большая чать конечно скопирована у Вас, но зато это позволило детально разобраться. Спасибо
 3. * Сделайте интент-фильтр для запуска калькулятора извне, а также напишите тестовое приложение, запускающее приложение-калькулятор
  */
 
@@ -14,8 +15,6 @@ import android.widget.TextView;
 
 import geekbrains.android_home_work_calculator.R;
 import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
-
-import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity implements MainView {
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         keyDiv.setOnClickListener(v -> presenter.onKeyDivPressed());
 
         keyClear.setOnClickListener(v -> presenter.onKeyClearPressed());
-//        keyDelete.setOnClickListener(v -> presenter.onKeyDeletePressed());
+        keyDelete.setOnClickListener(v -> presenter.onKeyDeletePressed());
         keyResult.setOnClickListener(v -> presenter.onKeyResultPressed());
 
     }

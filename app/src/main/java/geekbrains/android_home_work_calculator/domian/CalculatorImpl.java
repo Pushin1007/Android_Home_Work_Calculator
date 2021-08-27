@@ -15,6 +15,9 @@ public class CalculatorImpl implements Calculator {
             case SUBS:
                 return argOne - argTwo;
             case DIV:
+                if (Math.abs(argTwo - 0.0) < 0.0000000001) {
+                    return 0;
+                }
                 return argOne / argTwo;
         }
         return 0;
