@@ -59,25 +59,15 @@ public class MainPresenter {
     public void onKeyDivPressed() {
         performOperation(Operation.DIV);
     }
-//    public void onKeyResultPressed() {
-//
-//        if (argTwo == null) {
-//            operation = op;
-//            argTwo = 0.0;
-//
-//        } else {
-//            double res = calculator.performOperation(argOne, argTwo, operation);
-//            view.showResult(String.valueOf(res));
-//
-//            argOne = res;
-//            argTwo = 0.0;
-//
-//            operation = op;
-//
-//        }
-//        isRealInput = false;
-//
-//    }
+
+    public void onKeyResultPressed() {
+        double res = calculator.performOperation(argOne, argTwo, operation);
+        view.showResult(String.valueOf(res));
+        argOne = res;
+        argTwo = 0.0;
+        isRealInput = false;
+
+    }
 
 
     public void onKeyDotPressed() {
@@ -99,7 +89,6 @@ public class MainPresenter {
 
             argOne = res;
             argTwo = 0.0;
-
             operation = op;
 
         }
@@ -118,40 +107,5 @@ public class MainPresenter {
 }
 
 
-//public class MainPresenter {
-//
-//    private MainView view;
-//
-//    private Calculator calculator;
-//    private Digit argOne = new Digit();
-//    private Digit argTwo;
-//
-//    private Operation operation;
-//
-//    public MainPresenter(MainView view, Calculator calculator) {
-//        this.view = view;
-//        this.calculator = calculator;
-//    }
-//
-//    public void onKeyOnePresed() {
-//        argOne.addDigit(1);
-//        view.showResult(String.valueOf(argOne.toDouble()));
-//    }
-//
-//    public void onKeyTwoPresed() {
-//        argOne.addDigit(2);
-//        view.showResult(String.valueOf(argOne.toDouble()));
-//    }
-//
-//    public void onKeyPlusPressed() {
-//        view.showResult("ggghhh");
-//
-//        operation = Operation.ADD;
-//        if (argOne != null && argTwo !=null){
-//            double res = calculator.performoperation(argOne,argTwo,operation);
-//            view.showResult("ggghhh");
-//        }
-//
-//    }
-//}
+
 

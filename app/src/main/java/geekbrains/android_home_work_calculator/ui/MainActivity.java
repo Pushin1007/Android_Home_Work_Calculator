@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
         keyClear.setOnClickListener(v -> presenter.onKeyClearPressed());
 //        keyDelete.setOnClickListener(v -> presenter.onKeyDeletePressed());
-//        keyResult.setOnClickListener(v -> presenter.onKeyResultPressed());
+        keyResult.setOnClickListener(v -> presenter.onKeyResultPressed());
 
     }
 
