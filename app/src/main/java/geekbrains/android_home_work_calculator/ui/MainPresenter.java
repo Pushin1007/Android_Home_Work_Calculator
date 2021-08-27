@@ -1,16 +1,21 @@
 package geekbrains.android_home_work_calculator.ui;
 
 import geekbrains.android_home_work_calculator.domian.Calculator;
-import geekbrains.android_home_work_calculator.domian.Digit;
 import geekbrains.android_home_work_calculator.domian.Operation;
 
 public class MainPresenter {
 
-    private MainView view;
+    private static final int BASE = 10;
 
-    private Calculator calculator;
-    private Digit argOne = new Digit();
-    private Digit argTwo;
+    private final MainView view;
+
+    private final Calculator calculator;
+
+    private Double argOne = 0.0;
+    private Double argTwo = null;
+
+    private boolean isRealInput = false;
+    private int realMultiplier = BASE;
 
     private Operation operation;
 
@@ -19,24 +24,134 @@ public class MainPresenter {
         this.calculator = calculator;
     }
 
-    public void onKeyOnePresed() {
-        argOne.addDigit(1);
-        view.showResult(String.valueOf(argOne.toDouble()));
+    public void onKeyClearPressed() {
+        argOne = 0.0;
+        argTwo = null;
+        view.showResult(String.valueOf(0.0));
+
     }
 
-    public void onKeyTwoPresed() {
-        argOne.addDigit(2);
-        view.showResult(String.valueOf(argOne.toDouble()));
-    }
+    public void onKeyPressed(int value) {
 
-    public void onKeyPlusPressed() {
-        view.showResult("ggghhh");
+        if (argTwo == null) {
+            argOne = addDigit(argOne, value);
 
-        operation = Operation.ADD;
-        if (argOne != null && argTwo !=null){
-            double res = calculator.performoperation(argOne,argTwo,operation);
-            view.showResult("ggghhh");
+            view.showResult(String.valueOf(argOne));
+
+        } else {
+            argTwo = addDigit(argTwo, value);
+
+            view.showResult(String.valueOf(argTwo));
         }
+    }
 
+
+    public void onKeyPlusPressed() { performOperation(Operation.ADD); }
+
+    public void onKeyMultPressed() {
+        performOperation(Operation.MULT);
+    }
+
+    public void onKeySubPressed() {
+        performOperation(Operation.SUBS);
+    }
+
+    public void onKeyDivPressed() {
+        performOperation(Operation.DIV);
+    }
+//    public void onKeyResultPressed() {
+//
+//        if (argTwo == null) {
+//            operation = op;
+//            argTwo = 0.0;
+//
+//        } else {
+//            double res = calculator.performOperation(argOne, argTwo, operation);
+//            view.showResult(String.valueOf(res));
+//
+//            argOne = res;
+//            argTwo = 0.0;
+//
+//            operation = op;
+//
+//        }
+//        isRealInput = false;
+//
+//    }
+
+
+    public void onKeyDotPressed() {
+        if (isRealInput) {
+            return;
+        }
+        isRealInput = true;
+        realMultiplier = BASE;
+    }
+
+    private void performOperation(Operation op) {
+        if (argTwo == null) {
+            operation = op;
+            argTwo = 0.0;
+
+        } else {
+            double res = calculator.performOperation(argOne, argTwo, operation);
+            view.showResult(String.valueOf(res));
+
+            argOne = res;
+            argTwo = 0.0;
+
+            operation = op;
+
+        }
+        isRealInput = false;
+    }
+
+    private double addDigit(double arg, int digit) {
+        if (!isRealInput) {
+            return arg * BASE + digit;
+        } else {
+            double result = arg + digit / (double) realMultiplier;
+            realMultiplier *= BASE;
+            return result;
+        }
     }
 }
+
+
+//public class MainPresenter {
+//
+//    private MainView view;
+//
+//    private Calculator calculator;
+//    private Digit argOne = new Digit();
+//    private Digit argTwo;
+//
+//    private Operation operation;
+//
+//    public MainPresenter(MainView view, Calculator calculator) {
+//        this.view = view;
+//        this.calculator = calculator;
+//    }
+//
+//    public void onKeyOnePresed() {
+//        argOne.addDigit(1);
+//        view.showResult(String.valueOf(argOne.toDouble()));
+//    }
+//
+//    public void onKeyTwoPresed() {
+//        argOne.addDigit(2);
+//        view.showResult(String.valueOf(argOne.toDouble()));
+//    }
+//
+//    public void onKeyPlusPressed() {
+//        view.showResult("ggghhh");
+//
+//        operation = Operation.ADD;
+//        if (argOne != null && argTwo !=null){
+//            double res = calculator.performoperation(argOne,argTwo,operation);
+//            view.showResult("ggghhh");
+//        }
+//
+//    }
+//}
+

@@ -15,7 +15,7 @@ public class CalculatorImpl implements Calculator {
             case SUBS:
                 return argOne - argTwo;
             case DIV:
-                return argOne - argTwo;
+                return argOne / argTwo;
         }
         return 0;
     }

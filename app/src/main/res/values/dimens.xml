@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_height">40dp</dimen>
+    <dimen name="text_size">24sp</dimen>
+    <dimen name="column_count_vert">4</dimen>
+    <dimen name="column_count_land">5</dimen>
+    <dimen name="button_margin">2dp</dimen>
+    <dimen name="double_row_span">2</dimen>
+    <dimen name="double_column_span">2</dimen>
+</resources>

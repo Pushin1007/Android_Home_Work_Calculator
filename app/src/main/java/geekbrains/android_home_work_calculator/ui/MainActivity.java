@@ -3,7 +3,6 @@ package geekbrains.android_home_work_calculator.ui;
 1. Создайте активити с настройками, где включите выбор темы приложения.
 2. Доделайте приложение «Калькулятор». Это последний урок с созданием приложения «Калькулятор».
 3. * Сделайте интент-фильтр для запуска калькулятора извне, а также напишите тестовое приложение, запускающее приложение-калькулятор
-
  */
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +18,7 @@ import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
 import java.util.HashMap;
 
 
-
-public class MainActivity extends AppCompatActivity implements  MainView{
+public class MainActivity extends AppCompatActivity implements MainView {
 
     private MainPresenter presenter;
 
@@ -46,14 +44,13 @@ public class MainActivity extends AppCompatActivity implements  MainView{
     private Button keyResult;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_calc);
 
         numView = findViewById(R.id.num_view); // инициализируем переменную отображения ввода/вывода и присваиваем соответствующую вьюху
-presenter = new MainPresenter(this, new CalculatorImpl());
+        presenter = new MainPresenter(this, new CalculatorImpl());
 
         key0 = findViewById(R.id.key_0); // инициализация кнопок
         key1 = findViewById(R.id.key_1);
@@ -80,140 +77,30 @@ presenter = new MainPresenter(this, new CalculatorImpl());
         key0.setOnClickListener(new View.OnClickListener() { //обработка нажатий кнопок
             @Override
             public void onClick(View v) {
-//                calc.setList(0);
-//                updateNumWiev();
+                presenter.onKeyPressed(0);
             }
         });
+        key1.setOnClickListener(v -> presenter.onKeyPressed(1));
+        key2.setOnClickListener(v -> presenter.onKeyPressed(2));
+        key3.setOnClickListener(v -> presenter.onKeyPressed(3));
+        key4.setOnClickListener(v -> presenter.onKeyPressed(4));
+        key5.setOnClickListener(v -> presenter.onKeyPressed(5));
+        key6.setOnClickListener(v -> presenter.onKeyPressed(6));
+        key7.setOnClickListener(v -> presenter.onKeyPressed(7));
+        key8.setOnClickListener(v -> presenter.onKeyPressed(8));
+        key9.setOnClickListener(v -> presenter.onKeyPressed(9));
 
-        key1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.onKeyOnePresed();
-//                calc.setList(1);
-//                updateNumWiev();
-            }
-        });
-        key2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.onKeyTwoPresed();
-//                calc.setList(2);
-//                updateNumWiev();
-            }
-        });
+        keyDot.setOnClickListener(v -> presenter.onKeyDotPressed());
 
-        key3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(3);
-                updateNumWiev();
-            }
-        });
-        key4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(4);
-                updateNumWiev();
-            }
-        });
-        key5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(5);
-                updateNumWiev();
-            }
-        });
-        key6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(6);
-                updateNumWiev();
-            }
-        });
-        key7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(7);
-                updateNumWiev();
-            }
-        });
-        key8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(8);
-                updateNumWiev();
-            }
-        });
-        key9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(9);
-                updateNumWiev();
-            }
-        });
+        keyAdd.setOnClickListener(v -> presenter.onKeyPlusPressed());
+        keySub.setOnClickListener(v -> presenter.onKeySubPressed());
+        keyMult.setOnClickListener(v -> presenter.onKeyMultPressed());
+        keyDiv.setOnClickListener(v -> presenter.onKeyDivPressed());
 
+        keyClear.setOnClickListener(v -> presenter.onKeyClearPressed());
+//        keyDelete.setOnClickListener(v -> presenter.onKeyDeletePressed());
+//        keyResult.setOnClickListener(v -> presenter.onKeyResultPressed());
 
-        keyDot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.setList(".");
-                updateNumWiev();
-            }
-        });
-
-
-        // Кнопки с операндами. Еще пока не придумал как их обрабатывать между числами
-        keyAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.onKeyPlusPressed();
-                calc.addition();
-                updateNumWiev();
-            }
-        });
-
-
-        keySub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.subtraction();
-                updateNumWiev();
-            }
-        });
-
-// здесь надо будет ловить эксепшен если второе число будет 0
-        keyDiv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.division();
-                updateNumWiev();
-            }
-        });
-
-
-        keyMult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.multiplication();
-                updateNumWiev();
-            }
-        });
-
-        keyClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calc.clear();
-                updateNumWiev();
-            }
-        });
-    }
-
-
-
-
-    private void updateNumWiev() { // Метод обновления вьюшки. не могу понять почему не работает
-        ddd = calc.printNum().toString();
-        numView.setText(ddd);
     }
 
     @Override
