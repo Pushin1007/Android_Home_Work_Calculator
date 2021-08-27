@@ -92,6 +92,7 @@ String ddd;
         key2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                presenter.onKeyTwoPresed();
                 calc.setList(2);
                 updateNumWiev();
             }
