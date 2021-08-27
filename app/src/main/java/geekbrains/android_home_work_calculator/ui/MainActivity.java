@@ -1,4 +1,4 @@
-package geekbrains.android_home_work_calculator;
+package geekbrains.android_home_work_calculator.ui;
 /*
 1. Напишите обработку каждой кнопки из макета калькулятора.
 2. Создайте объект с данными и операциями калькулятора. Продумайте, каким образом будете хранить введённые пользователем данные.
@@ -12,8 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import geekbrains.android_home_work_calculator.Calc;
+import geekbrains.android_home_work_calculator.R;
+
 public class MainActivity extends AppCompatActivity {
 
+    private MainPresenter presenter;
 
     private TextView numView; //объявляем переменную отображения ввода/вывода
 
@@ -80,6 +84,7 @@ String ddd;
         key1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                presenter.onKeyOnePresed();
                 calc.setList(1);
                 updateNumWiev();
             }
