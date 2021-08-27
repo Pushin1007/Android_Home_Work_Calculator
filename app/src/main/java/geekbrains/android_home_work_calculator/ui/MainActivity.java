@@ -1,4 +1,4 @@
-package geekbrains.android_home_work_calculator;
+package geekbrains.android_home_work_calculator.ui;
 /*
 1. Переделайте все кнопки на Материал. Сделано
 2. Все размеры и строки сделайте ресурсами. Сделано
@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import geekbrains.android_home_work_calculator.Calculator;
+import geekbrains.android_home_work_calculator.R;
 
 public class MainActivity extends AppCompatActivity {
 
