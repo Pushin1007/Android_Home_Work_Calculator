@@ -1,6 +1,7 @@
 package geekbrains.android_home_work_calculator.ui;
 /*
 1. Создайте активити с настройками, где включите выбор темы приложения.
+Сделано
 
 2. Доделайте приложение «Калькулятор». Это последний урок с созданием приложения «Калькулятор».
  Сделано, но так себе.  Большая чать конечно скопирована у Вас, но зато это позволило детально разобраться. Спасибо
@@ -11,10 +12,12 @@ package geekbrains.android_home_work_calculator.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 
 import geekbrains.android_home_work_calculator.R;
 import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
@@ -49,6 +52,19 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent launchIntent = getIntent();
+
+        boolean nigthTheme = launchIntent.getBooleanExtra(ARG_THEME, false);
+
+
+        if (nigthTheme) {
+            setTheme(R.style.CalcThemeNigth);
+        } else {
+            setTheme(R.style.CalcTheme);
+        }
+
+
         setContentView(R.layout.activity_main_calc);
 
         numView = findViewById(R.id.num_view); // инициализируем переменную отображения ввода/вывода и присваиваем соответствующую вьюху

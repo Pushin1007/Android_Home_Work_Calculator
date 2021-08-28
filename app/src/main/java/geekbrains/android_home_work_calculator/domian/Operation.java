@@ -1,9 +1,9 @@
 package geekbrains.android_home_work_calculator.domian;
 
 
-    public enum Operation {
-        ADD,
-        MULT,
-        SUBS,
-        DIV
-    }
+public enum Operation {
+    ADD,
+    MULT,
+    SUBS,
+    DIV
+}

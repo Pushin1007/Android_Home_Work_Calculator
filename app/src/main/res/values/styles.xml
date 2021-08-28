@@ -41,6 +41,11 @@
 
     </style>
 
+    <style name="CalcThemeNigth" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="materialButtonStyle">@style/ButtonStyleNigth</item>
+
+    </style>
+
     <color name="blue">#0954AD</color>
     <dimen name="width_button">75dp</dimen>
     <dimen name="strokeWidth">2dp</dimen>
