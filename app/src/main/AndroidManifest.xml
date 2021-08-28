@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_Home_Work_Calculator">
+        <activity android:name=".StartActivity"></activity>
+
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +26,10 @@
                 <data
                     android:host="intent"
                     android:scheme="example" />
-                <!--                наше приложение может обрабатывать ссылки вида  example://intent
-                 т.е. если кто-то запустит приложение с таким  Uri, то запустится данное приложение-->
+                <!--
+                 наше приложение может обрабатывать ссылки вида  example://intent
+                 т.е. если кто-то запустит приложение с таким  Uri, то запустится данное приложение
+                -->
             </intent-filter>
         </activity>
     </application>

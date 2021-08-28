@@ -23,7 +23,7 @@ import geekbrains.android_home_work_calculator.domian.CalculatorImpl;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private MainPresenter presenter;
-
+    public static final String ARG_THEME = "ARG_THEME";
     private TextView numView;
 
     private Button key0;
