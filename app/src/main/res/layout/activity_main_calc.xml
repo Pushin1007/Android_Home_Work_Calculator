@@ -18,7 +18,7 @@
         android:orientation="vertical"
         >
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/num_view"
             style="@style/TextStyle"
             android:gravity="end|bottom" />

@@ -39,7 +39,6 @@ public class MainPresenter {
             if (argTwo == null) {
                 argOne = (argOne - num) / BASE;
                 view.showResult(String.valueOf(argOne));
-
             } else {
                 argTwo = (argTwo - num) / BASE;
                 view.showResult(String.valueOf(argTwo));
@@ -53,8 +52,6 @@ public class MainPresenter {
                 argTwo = argTwo - num / (double) realMultiplier * BASE;
                 view.showResult(String.valueOf(argTwo));
             }
-
-
         }
     }
 
@@ -62,12 +59,9 @@ public class MainPresenter {
 
         if (argTwo == null) {
             argOne = addDigit(argOne, value);
-
             view.showResult(String.valueOf(argOne));
-
         } else {
             argTwo = addDigit(argTwo, value);
-
             view.showResult(String.valueOf(argTwo));
         }
     }
@@ -95,7 +89,6 @@ public class MainPresenter {
         argOne = res;
         argTwo = 0.0;
         isRealInput = false;
-
     }
 
 
@@ -111,17 +104,13 @@ public class MainPresenter {
         if (argTwo == null) {
             operation = op;
             argTwo = 0.0;
-
         } else {
-
-              double res = calculator.performOperation(argOne, argTwo, operation);
-              view.showResult(String.valueOf(res));
-
-              argOne = res;
-              argTwo = 0.0;
-              operation = op;}
-
-
+            double res = calculator.performOperation(argOne, argTwo, operation);
+            view.showResult(String.valueOf(res));
+            argOne = res;
+            argTwo = 0.0;
+            operation = op;
+        }
         isRealInput = false;
     }
 
@@ -136,7 +125,6 @@ public class MainPresenter {
 
         }
     }
-
 
 }
 
